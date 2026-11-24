@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model SiteConfig {
+  id        Int      @id @default(1)
+  settings  Json?
+  profile   Json
+  about     Json
+  work      Json
+  skills    Json
+  updatedAt DateTime @updatedAt
+}
+
+model ListShelf {
+  id       Int        @id @default(autoincrement())
+  name     String
+  position Int        @default(0)
+  items    ListItem[]
+}
+
+model ListItem {
+  id       Int       @id @default(autoincrement())
+  shelfId  Int
+  shelf    ListShelf @relation(fields: [shelfId], references: [id], onDelete: Cascade)
+  title    String
+  subtitle String    @default("")
+  status   String    @default("Want to")
+  color    String?
+  color2   String?
+  ink      String?
+  imageUrl String    @default("")
+  position Int       @default(0)
+
+  @@index([shelfId, position])
+}
+
+model Project {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String  @default("")
+  url         String  @default("")
+  imageUrl    String  @default("")
+  color1      String?
+  color2      String?
+  position    Int     @default(0)
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  slug      String
+  title     String
+  dateLabel String
+  tags      String[]
+  excerpt   String   @default("")
+  body      String   @default("")
+  bodyData  Json?
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Photo {
+  id        Int      @id @default(autoincrement())
+  url       String
+  alt       String   @default("")
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model MediaAsset {
+  id           Int      @id @default(autoincrement())
+  key          String   @unique
+  url          String
+  bucket       String
+  mimeType     String
+  size         Int
+  originalName String
+  createdAt    DateTime @default(now())
+}
