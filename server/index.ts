@@ -1,4 +1,6 @@
 import 'dotenv/config';
+import fs from 'node:fs';
+import path from 'node:path';
 import cors from 'cors';
 import express, { type NextFunction, type Request, type Response } from 'express';
 import { prisma } from './db';
@@ -35,11 +37,20 @@ app.use('/api', uploadsRouter);
 app.use('/api', linkPreviewRouter);
 app.use('/api', gifsRouter);
 
+const distDir = path.resolve(process.cwd(), 'dist');
+const distIndex = path.join(distDir, 'index.html');
+if (fs.existsSync(distIndex)) {
+  app.use(express.static(distDir));
+  app.get(/^(?!\/api(?:\/|$)).*/, (_req, res) => {
+    res.sendFile(distIndex);
+  });
+}
+
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error('[API Error]', err);
   res.status(500).json({ error: err.message || 'Internal server error' });
 });
 
-app.listen(port, () => {
-  console.log(`Portfolio API listening on http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Portfolio server listening on http://0.0.0.0:${port}`);
 });
