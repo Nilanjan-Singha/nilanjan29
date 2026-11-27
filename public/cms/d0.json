@@ -153,6 +153,35 @@
       ]
     },
     {
+      "name": "Listening",
+      "items": [
+        {
+          "t": "Blonde",
+          "s": "Frank Ocean",
+          "c": "#d9e4d1",
+          "ink": "#182612",
+          "status": "Completed",
+          "url": "https://open.spotify.com/album/3mH6qwIy9crq0I9YQbOuDf"
+        },
+        {
+          "t": "Random Access Memories",
+          "s": "Daft Punk",
+          "c": "#2b2b2b",
+          "ink": "#f5e3b8",
+          "status": "In progress",
+          "url": "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa"
+        },
+        {
+          "t": "In Rainbows",
+          "s": "Radiohead",
+          "c": "#e8a87c",
+          "ink": "#291206",
+          "status": "Completed",
+          "url": "https://open.spotify.com/album/5vkqYmiPBYLaalcmjujWxK"
+        }
+      ]
+    },
+    {
       "name": "Gaming",
       "items": [
         {

@@ -61,6 +61,7 @@ export interface ListItem {
   c2?: string;
   ink?: string;
   img?: string;
+  url?: string;
 }
 
 export interface ListShelf {

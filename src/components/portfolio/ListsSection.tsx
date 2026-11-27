@@ -67,8 +67,8 @@ export const ListsSection: React.FC<ListsSectionProps> = ({
         >
           {!lists.length ? (
             <p className="empty">
-              <b>No book lists found</b>
-              Add a reading, watching, or gaming list in the CMS.
+              <b>No lists found</b>
+              Add a reading, watching, listening, or gaming list in the CMS.
             </p>
           ) : (
             lists.map((shelf, tabIdx) => {
@@ -140,6 +140,19 @@ export const ListsSection: React.FC<ListsSectionProps> = ({
                             )}
                             <b>{book.t}</b>
                             <small>{book.s}</small>
+                            {book.url && (
+                              <a
+                                className="sp-link"
+                                href={book.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Open ${book.t}`}
+                                title={book.url}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                ↗
+                              </a>
+                            )}
                           </div>
                         );
                       })

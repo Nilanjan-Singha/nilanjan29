@@ -61,7 +61,7 @@ export const CMS_SECTIONS: CmsSectionMeta[] = [
     id: 'lists',
     label: 'Lists',
     description:
-      'Shelves for reading, watching and gaming. Each item becomes a book spine. Add a cover image, or leave it empty for an automatic soft color.',
+      'Shelves for reading, watching, listening and gaming. Each item becomes a book spine. Add a cover image and optional URL, or leave empty for an automatic soft color.',
     getCount: (d) => d.lists.length,
   },
   {

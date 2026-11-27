@@ -8,6 +8,7 @@ export interface TrackItem {
   color: string;
   ink: string;
   image: string;
+  url?: string;
   status: TracklistStatus;
 }
 
@@ -33,7 +34,15 @@ export const TrackCard: React.FC<{ item: TrackItem }> = ({ item }) => (
       <span className="track-status-tag">{item.status}</span>
     </div>
     <div className="track-meta">
-      <h2>{item.title}</h2>
+      <h2>
+        {item.url ? (
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            {item.title} ↗
+          </a>
+        ) : (
+          item.title
+        )}
+      </h2>
       <p>
         {item.category} · {item.creator}
       </p>

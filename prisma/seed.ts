@@ -59,6 +59,7 @@ async function main() {
               color2: item.c2 ?? null,
               ink: item.ink ?? null,
               imageUrl: item.img || '',
+              url: item.url || '',
               position: iIdx,
             })),
           },

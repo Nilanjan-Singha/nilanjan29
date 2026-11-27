@@ -530,6 +530,7 @@ export const CmsSectionPanel: React.FC<CmsSectionPanelProps> = ({
                     s: '',
                     status: 'Want to',
                     img: '',
+                    url: '',
                   })}
                   onChange={(items) => updateShelf({ items })}
                   renderFields={(item, __, updateItem) => (
@@ -566,6 +567,15 @@ export const CmsSectionPanel: React.FC<CmsSectionPanelProps> = ({
                             </option>
                           ))}
                         </select>
+                      </label>
+                      <label className="f full">
+                        <span className="l">URL (Spotify, YouTube, Goodreads, etc.)</span>
+                        <input
+                          type="url"
+                          placeholder="https://..."
+                          value={item.url || ''}
+                          onChange={(e) => updateItem({ url: e.target.value })}
+                        />
                       </label>
                       <ImageField
                         label="Cover image"

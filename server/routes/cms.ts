@@ -46,6 +46,7 @@ async function readCmsFromDb(): Promise<CmsData | null> {
         c2: item.color2 ?? undefined,
         ink: item.ink ?? undefined,
         img: item.imageUrl || undefined,
+        url: item.url || undefined,
       })),
     })),
     projects: projects.map((p) => ({
@@ -120,6 +121,7 @@ export async function writeCmsToDb(data: CmsData): Promise<void> {
                   color2: item.c2 ?? null,
                   ink: item.ink ?? null,
                   imageUrl: item.img || '',
+                  url: item.url || '',
                   position: iIdx,
                 })),
               },

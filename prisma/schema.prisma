@@ -34,6 +34,7 @@ model ListItem {
   color2   String?
   ink      String?
   imageUrl String    @default("")
+  url      String    @default("")
   position Int       @default(0)
 
   @@index([shelfId, position])

@@ -27,6 +27,7 @@ export const TracklistPage: React.FC = () => {
           color: item.c || '#dfe8cf',
           ink: item.ink || '#1d2d0b',
           image: item.img || '',
+          url: item.url || '',
           status: (item.status || 'Want to') as TracklistStatus,
         });
       });
